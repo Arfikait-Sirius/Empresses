@@ -1,5 +1,7 @@
 const std = @import( "std" ) ;
 
+pub const CHAO = lvFree ;
+
 pub const AllocateError = error{
     FailedToAllocate,
 } ;
@@ -72,7 +74,6 @@ pub fn fnLowerAll( base: []const u8 ) error{ FailedToAllocate }!( ?[]const u8 ) 
 //     Leave
 //------------------------
 pub fn lvFree() void {
-    
     arena.deinit() ;
 
     return ;
