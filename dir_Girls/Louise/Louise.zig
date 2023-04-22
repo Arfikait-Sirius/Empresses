@@ -10,6 +10,28 @@ var arena = std.heap.ArenaAllocator.init( std.heap.page_allocator ) ;
 
 //------------------------
 // :[ NAME ]:
+//     fnCount
+//
+// :[ CATEGORY ]:
+//     Skill
+//------------------------
+pub fn fnCount( base: []const u8, target: []const u8 ) usize {
+    var result: usize = 0 ;
+
+    var searched: usize = 0 ;
+    var index = std.mem.indexOf( u8, base, target ) ;
+    while( index != null ){
+        var first = searched + index.? + target.len ;
+        index = std.mem.indexOf( u8, base[first..base.len], target ) ;
+        searched = first ;
+        result += 1 ;
+    }
+
+    return result ;
+}
+
+//------------------------
+// :[ NAME ]:
 //     fnUpperAll
 //
 // :[ CATEGORY ]:
